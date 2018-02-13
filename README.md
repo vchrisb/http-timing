@@ -31,7 +31,7 @@ One can filter the log with this tag and write to a file. The file can then impo
 `cf logs http-timing |  grep CSV  --line-buffered > app_log.csv`
 
 The format for the CSV line is:  
-`DATE APP_INSTANCE OUT TAG COUNTER UUID DNSLookup TCPConnection TLSHandshake ServerProcessing`
+`DATE APP_INSTANCE OUT TAG COUNTER UUID TOTAL DNSLookup TCPConnection TLSHandshake ServerProcessing`
 
 Similarily on the target application, e.g. [cf-helloworld](https://github.com/vchrisb/cf-helloworld), you can filter on the router response time and use the UUID to correlate a slow request with the gorouter log.  
 `cf logs cf-helloworld | grep response_time --line-buffered > server_log.log`
