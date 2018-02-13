@@ -1,0 +1,14 @@
+---
+applications:
+  - name: http-timing
+    instances: 3
+    memory: 64m
+    command: http-timing
+    health-check-type: process
+    buildpack: https://github.com/cloudfoundry/go-buildpack.git
+    env:
+      TEST_HTTP_ENDPOINT: "https://google.com"
+      TEST_THRESHOLD: 1000
+      TEST_RATE: 1
+      GOPACKAGENAME: http-timing
+      GOVERSION: go1.9
