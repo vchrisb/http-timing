@@ -27,10 +27,13 @@ push the application:
 ### evaluate logs
 
 The application does write a log line with details, prepended with `CSV` when ever the threshold is reached.
-One can filter the log with this tag and write to a file. The file can then imported with `space` as a delimiter.
+One can filter the log with this tag and write to a file. The file can then imported with `space` as a delimiter.  
 `cf logs http-timing |  grep CSV  --line-buffered > app_log.csv`
 
-Similarily on the target application, e.g. [cf-helloworld](https://github.com/vchrisb/cf-helloworld), you can filter on the router response time and use the UUID to correlate a slow request with the gorouter log.
+The format for the CSV line is:  
+`DATE APP_INSTANCE OUT TAG COUNTER UUID DNSLookup TCPConnection TLSHandshake ServerProcessing`
+
+Similarily on the target application, e.g. [cf-helloworld](https://github.com/vchrisb/cf-helloworld), you can filter on the router response time and use the UUID to correlate a slow request with the gorouter log.  
 `cf logs cf-helloworld | grep response_time --line-buffered > server_log.log`
 
 ## local deployment

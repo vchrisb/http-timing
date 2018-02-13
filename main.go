@@ -91,7 +91,7 @@ func call(endpoint string, limit time.Duration, run int) {
     fmt.Println("TCPConnection: ", result.TCPConnection.Seconds())
     fmt.Println("TLSHandshake: ", result.TLSHandshake.Seconds())
     fmt.Println("ServerProcessing: ", result.ServerProcessing.Seconds())
-    fmt.Println("CSV", run, id, result.DNSLookup.Seconds(), result.TCPConnection.Seconds(), result.TLSHandshake.Seconds(), result.ServerProcessing.Seconds())
+    fmt.Println("CSV", run, id, result.Total(end_time).Seconds(), result.DNSLookup.Seconds(), result.TCPConnection.Seconds(), result.TLSHandshake.Seconds(), result.ServerProcessing.Seconds())
   }
 
 }
